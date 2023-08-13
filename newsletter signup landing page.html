@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Programmer Newsletter Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="email"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .popup-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .newsletter-info {
+            margin-top: 20px;
+        }
+
+        .section-container {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .section-heading {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .section-content {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .article {
+            margin-bottom: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .meetup {
+            margin-bottom: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tech-near-me-link {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .tech-near-me-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function togglePopup(popupClass) {
+            var popup = document.querySelector(popupClass);
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showPopup() {
+            var submitPopup = document.querySelector('.submit-popup');
+            submitPopup.style.display = 'block';
+            setTimeout(function() {
+                submitPopup.style.display = 'none';
+            }, 3000); // Hide submit popup after 3 seconds
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Local Programmer Newsletter</h1>
+        <p>Stay informed about the latest trends, tips, and events in the programming community!</p>
+    </div>
+    <div class="container">
+        <p>Join our community of local programmers and receive valuable insights right in your inbox.</p>
+        <button class="popup-button" onclick="togglePopup('.popup')">Subscribe Now</button>
+        <div class="newsletter-info">
+            <h2>Why Join Our Newsletter?</h2>
+            <p>Discover programming tips, stay up-to-date with local events, and connect with fellow programmers in the area. Don't miss out on the latest in the programming world!</p>
+        </div>
+    </div>
+    <div class="popup">
+        <span class="close-button" onclick="togglePopup('.popup')">X</span>
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form action="#" method="post" onsubmit="showPopup()">
+                <div class="input-container">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+        <div class="submit-popup popup">
+            <p>Thank you for subscribing!</p>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="section-heading">Recent Articles</div>
+        <div class="section-content">
+            <div class="article" onclick="togglePopup('.article-popup-1')">1. Exploring the Latest JavaScript Frameworks</div>
+            <div class="article" onclick="togglePopup('.article-popup-2')">2. Mastering CSS Grid Layouts</div>
+            <div class="article" onclick="togglePopup('.article-popup-3')">3. Introduction to Data Science with Python</div>
+        </div>
+        <a class="tech-near-me-link" href="#">Read More!</a>
+    </div>
+    <div class="section-container">
+        <div class="section-heading">Recent Meetups</div>
+        <div class="section-content">
+            <div class="meetup" onclick="togglePopup('.meetup-popup-1')">Meetup 1: Web Development Workshop</div>
+            <div class="meetup" onclick="togglePopup('.meetup-popup-2')">Meetup 2: Machine Learning Discussion Panel</div>
+            <div class="meetup" onclick="togglePopup('.meetup-popup-3')">Meetup 3: Networking Event for Programmers</div>
+        </div>
+        <a class="tech-near-me-link" href="#">Meetups Near Me</a>
+    </div>
+    <div class="popup article-popup-1">
+        <span class="close-button" onclick="togglePopup('.article-popup-1')">X</span>
+        <div>
+            <h2>Exploring the Latest JavaScript Frameworks</h2>
+            <p>Learn about the cutting-edge JavaScript frameworks that are shaping the future of web development.</p>
+            <button class="popup-button" onclick="togglePopup('.article-popup-1')">Take Me to Article</button>
+        </div>
+    </div>
+    <div class="popup article-popup-2">
+        <span class="close-button" onclick="togglePopup('.article-popup-2')">X</span>
+        <div>
+            <h2>Mastering CSS Grid Layouts</h2>
+            <p>Discover how to create flexible and responsive layouts using CSS Grid.</p>
+            <button class="popup-button" onclick="togglePopup('.article-popup-2')">Take Me to Article</button>
+        </div>
+    </div>
+    <div class="popup article-popup-3">
+        <span class="close-button" onclick="togglePopup('.article-popup-3')">X</span>
+        <div>
+            <h2>Introduction to Data Science with Python</h2>
+            <p>Get started with data science using Python and explore its powerful data analysis capabilities.</p>
+            <button class="popup-button" onclick="togglePopup('.article-popup-3')">Take Me to Article</button>
+        </div>
+    </div>
+    <div class="popup meetup-popup-1">
+        <span class="close-button" onclick="togglePopup('.meetup-popup-1')">X</span>
+        <div>
+            <h2>Web Development Workshop</h2>
+            <p>Join us for an interactive web development workshop where you'll learn the latest techniques and tools.</p>
+            <button class="popup-button" onclick="togglePopup('.meetup-popup-1')">Take Me to Meetup</button>
+        </div>
+    </div>
+    <div class="popup meetup-popup-2">
+        <span class="close-button" onclick="togglePopup('.meetup-popup-2')">X</span>
+        <div>
+            <h2>Machine Learning Discussion Panel</h2>
+            <p>Engage in insightful discussions with experts in machine learning and artificial intelligence.</p>
+            <button class="popup-button" onclick="togglePopup('.meetup-popup-2')">Take Me to Meetup</button>
+        </div>
+    </div>
+    <div class="popup meetup-popup-3">
+        <span class="close-button" onclick="togglePopup('.meetup-popup-3')">X</span>
+        <div>
+            <h2>Networking Event for Programmers</h2>
+            <p>Connect with fellow programmers and expand your professional network at our upcoming networking event.</p>
+            <button class="popup-button" onclick="togglePopup('.meetup-popup-3')">Take Me to Meetup</button>
+        </div>
+    </div>
+</body>
+</html>
